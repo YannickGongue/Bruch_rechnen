@@ -1,0 +1,67 @@
+#include <iostream>
+#include "Bruch.h"
+
+using namespace std;
+
+int main()
+{
+	int iZaehler1, iNenner1;
+	int iZaehler2, iNenner2;
+	char Operator;
+	Bruch bruch;
+	Bruch ergebnis;
+
+	//Bruch1
+	Bruch bruch1;
+	cout << "1. Bruch-Zaehler: ";
+	cin >> iZaehler1;
+	bruch1.setZaehler(iZaehler1);
+	cout << "1. Bruch-Nenner: ";
+	cin >> iNenner1;
+	bruch1.setNenner (iNenner1);
+
+	//Bruch2
+	Bruch bruch2;
+	cout << "2. Bruch-zaehler: ";
+	cin >> iZaehler2;
+	bruch2.setZaehler(iZaehler2);
+	cout << "2. Bruch-Nenner: ";
+	cin >> iNenner2;
+	bruch2.setNenner(iNenner2);
+
+	cout << "waehlen der operator( - + / *): ";
+	cin >> Operator;
+
+	switch (Operator)
+	{
+	  case '+':
+		ergebnis = bruch.Addition(bruch1, bruch2);
+		ergebnis.kuerzen();
+		cout << "Ergebnis: " << ergebnis.getZaehler()
+			<< "/" << ergebnis.getNenner() << endl;
+		break;
+
+	  case '-':
+		ergebnis = bruch.Subtrahieren(bruch1, bruch2);
+        ergebnis.kuerzen();
+		cout << "Ergebnis: " << ergebnis.getZaehler() << "/" << ergebnis.getNenner() << endl;
+		break;
+
+	  case '*':
+		ergebnis = bruch.Multiplication(bruch1, bruch2);
+		ergebnis.kuerzen();
+		cout << "Ergebnis: " << ergebnis.getZaehler() << "/" << ergebnis.getNenner() << endl;
+		break;
+
+	  case '/':
+		ergebnis = bruch.Divide(bruch1, bruch2);
+		ergebnis.kuerzen();
+	    cout << "Ergebnis: " << ergebnis.getZaehler() << "/" << ergebnis.getNenner() << endl;
+		break;
+
+	  default:
+		break;
+	}
+
+	return 0;
+}
